@@ -1,0 +1,98 @@
+body {
+  padding: 0 2em;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 1.2em;
+  max-width: 700px;
+  margin: auto;
+  color: #000;
+  background-color: rgba(255, 255, 255, 0.25);
+  background-image: url("../images/background-light.jpg");
+  background-size: cover;
+  background-blend-mode: screen;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 3em;
+  border-bottom: 2px solid black;
+  /* color: white; */
+}
+
+header h1 {
+  /* font-size: 3em; */
+  margin-bottom: 0.2em;
+  text-transform: uppercase;
+}
+
+footer {
+  border-top: 2px solid black;
+  margin-bottom: 4em;
+
+}
+
+section {
+  margin: 0 0 2em 0;
+}
+
+img {
+  width: 60%;
+}
+
+.top-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.framed {
+  /* background-color: #ead8c6;
+  padding: 1em; */
+  border: 1em solid white;
+  box-sizing: border-box;
+  border-radius: 0.1em;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Open Sans', 'Montserrat Alternates', sans-serif;
+}
+
+p {
+  line-height: 1.25;
+}
+
+dd {
+  margin-bottom: 0.5em;
+}
+dt {
+  font-weight: bold;
+  float: left;
+  margin-right: 1em;
+  min-width: 5em;
+}
+
+li {
+  list-style-type: circle;
+}
+
+a {
+  color: #1919FF;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 400px) {
+  header h1 {
+    font-size: 3em;
+  }
+}
+
+@media (min-width: 500px) {
+
+  header h1 {
+    font-size: 4em;
+  }
+
+}
