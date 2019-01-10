@@ -71,7 +71,7 @@ dt {
   min-width: 5em;
 }
 
-li {
+ul li {
   list-style-type: circle;
 }
 
