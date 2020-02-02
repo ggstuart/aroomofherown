@@ -6,7 +6,6 @@ body {
   max-width: 700px;
   margin: auto;
   color: #000;
-  background-color: rgba(255, 255, 255, 0.25);
   background-image: url("../images/background-light.jpg");
   background-size: cover;
   background-blend-mode: screen;
