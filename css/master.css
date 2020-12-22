@@ -5,7 +5,7 @@ body {
   font-size: 1.2em;
   max-width: 700px;
   margin: auto;
-  color: #000;
+  color: #111;
   background-image: url("../images/background-light.jpg");
   background-size: cover;
   background-blend-mode: screen;
@@ -80,6 +80,11 @@ a {
 }
 a:hover {
   text-decoration: underline;
+}
+
+blockquote {
+  font-style: italic;
+  font-weight: bold;
 }
 
 @media (min-width: 400px) {
