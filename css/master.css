@@ -45,8 +45,6 @@ img {
 }
 
 .framed {
-  /* background-color: #ead8c6;
-  padding: 1em; */
   border: 1em solid white;
   box-sizing: border-box;
   border-radius: 0.1em;
@@ -72,6 +70,7 @@ dt {
 
 ul li {
   list-style-type: circle;
+  margin-bottom: .2em;
 }
 
 a {
