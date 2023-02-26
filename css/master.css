@@ -1,5 +1,5 @@
 body {
-  padding: 0 2em;
+  padding: 0 1em;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-size: 1.2em;
@@ -26,17 +26,21 @@ header h1 {
 
 footer {
   border-top: 2px solid black;
-  margin-bottom: 4em;
+  padding-block: 4em;
+  display: grid;
+  place-items: center;
+  gap: 1em;
+}
 
+footer img {
+  width: 100%;
+  max-width: 400px;
 }
 
 section {
   margin: 0 0 2em 0;
 }
 
-img {
-  width: 60%;
-}
 
 .top-left {
   position: absolute;
@@ -58,14 +62,15 @@ p {
   line-height: 1.25;
 }
 
+dl {
+  display: grid;
+  gap: 0.5em;
+}
 dd {
-  margin-bottom: 0.5em;
+  margin: 0;
 }
 dt {
   font-weight: bold;
-  float: left;
-  margin-right: 1em;
-  min-width: 5em;
 }
 
 ul li {
@@ -98,4 +103,17 @@ blockquote {
     font-size: 4em;
   }
 
+  dl {
+    grid-template-columns: auto 1fr;
+  }
+
+}
+
+@media (min-width: 800px) {
+  footer {
+    grid-template-columns: 1fr 200px;
+  }
+  footer img {
+    width: 100%;
+  }
 }
