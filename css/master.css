@@ -2,7 +2,6 @@ body {
   padding: 0 1em;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
-  font-size: 1.2em;
   max-width: 1000px;
   margin: auto;
   color: #111;
@@ -10,6 +9,11 @@ body {
   background-image: url("../images/background-light.jpg");
   background-size: 2500px;
   background-blend-mode: overlay;
+}
+@media (min-width: 400px) {
+  body {
+    font-size: 1.2em;
+  }
 }
 
 header {
@@ -23,6 +27,13 @@ header h1 {
   /* font-size: 3em; */
   margin-bottom: 0.2em;
   text-transform: uppercase;
+}
+
+header p {
+  font-family: 'Open Sans', 'Montserrat Alternates', sans-serif;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-block: 0.8em;
 }
 
 nav {
@@ -129,6 +140,9 @@ blockquote {
 figure {
   margin: 0;
 }
+figcaption {
+  font-size: 0.8em;
+}
 
 
 .row-2,
@@ -203,6 +217,40 @@ ul.griddy li {
 
 ul.griddy img {
   filter: sepia(0.8)
+}
+
+
+.hero {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  place-items: center;
+  backdrop-filter: contrast(1.2) sepia(0.2);
+  border: 0.5px solid black;
+}
+.hero img {
+  max-width: 500px;
+  filter: sepia(0.3) blur(0.5px);
+}
+.hero p {
+  margin-top: 0;
+  font-size: 1.2em;
+}
+@media (min-width: 800px) {
+  .hero {
+    grid-template-columns: auto 1fr;
+  }
+  .hero p {
+    font-size: 1.0em;
+  }
+  .hero img {
+    min-width: 300px;
+  }
+}
+@media (min-width: 900px) {
+  .hero p {
+    font-size: 1.2em;
+  }
 }
 
 @media (min-width: 400px) {
