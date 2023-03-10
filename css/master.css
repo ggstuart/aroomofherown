@@ -4,6 +4,7 @@ body {
   font-weight: 500;
   max-width: 1000px;
   margin: auto;
+  margin-bottom: 1rem;
   color: #111;
   background-color: hsl(0, 0%, 60%);
   background-image: url("../images/background-light.jpg");
@@ -48,16 +49,15 @@ nav a {
   padding: 0.5em 1em;
   margin-block: 0.25em;
   border-radius: 2px;
-  backdrop-filter: sepia(30%) brightness(80%);
-  color: black;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 nav a.current {
   text-decoration: underline;
-  backdrop-filter: sepia(40%) brightness(70%);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 nav a:hover {
   text-decoration: none;
-  backdrop-filter: sepia(30%) brightness(75%);
+  background-color: rgba(0, 0, 0, 0.15);
 }
 
 footer {
@@ -120,7 +120,11 @@ ul li {
 }
 
 a {
-  color: #1919FF;
+  color: hsl(40, 80%, 25%);
+  text-decoration: none;
+}
+a:visited {
+  color: hsl(180, 80%, 25%);
   text-decoration: none;
 }
 a:hover {
@@ -133,7 +137,7 @@ blockquote {
   line-height: 1.5em;
   margin: 0;
   padding: 1rem;
-  backdrop-filter: contrast(0.5) brightness(1.2);
+  backdrop-filter: brightness(1.1);
   border-radius: 2px;
 }
 
@@ -159,31 +163,72 @@ figcaption {
   display: grid;
   gap: 1rem;
   place-items: center;
+  place-content: center;
+  grid-template-areas:
+  "intro"
+  "figure1"
+  "stuff"
+  "figure2"
+  "more";
 }
-@media (min-width: 600px) {
+.screenshot .intro {
+  grid-area: intro;
+  place-self: start;
+}
+.screenshot figure:nth-of-type(1) {
+  grid-area: figure1;
+}
+.screenshot figure:nth-of-type(2) {
+  grid-area: figure2;
+}
+.screenshot .stuff {
+  backdrop-filter: blur(5px) brightness(1.1);
+  border: 0.5px solid black;
+  padding: 1rem;
+  border-radius: 2px;
+  place-self: center;
+  grid-area: stuff;
+}
+.screenshot .more {
+  grid-area: more;
+  place-self: end;
+}
+.screenshot dl {
+  grid-template-columns: auto 1fr;
+}
+
+
+@media (min-width: 500px) {
   .screenshot {
-    grid-template-columns: 250px auto 250px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+            "intro intro"
+            "figure1 figure2"
+            "stuff stuff"
+            "more more";
+  }
+}
+
+@media (min-width: 850px) {
+  .screenshot {
+    grid-template-columns: auto 1fr auto;
     place-items: flex-start;
+    grid-template-areas:
+            "intro intro figure1"
+            "intro intro figure1"
+            "figure2 stuff figure1"
+            "figure2 more more"
+            "figure2 more more";
   }
-  .screenshot > * {
-    grid-column: span 2;
-  }
-  .screenshot figure {
-    grid-row: span 3;
-  }
-  .screenshot figure:nth-of-type(1) {
-    grid-column: 3/4;
-  }
-  .screenshot figure:nth-of-type(2) {
-    grid-column: 1/2;
+  .screenshot img {
+    max-width: 200px;
   }
 }
 
 
 .screenshot img {
-  max-width: 200px;
-  /* aspect-ratio: 3/7; */
-  object-fit: cover;
+  /* max-width: 200px; */
+  object-fit: contain;
   object-position: top;
   filter: none;
 }
@@ -225,31 +270,34 @@ ul.griddy img {
   gap: 1rem;
   padding: 1rem;
   place-items: center;
-  backdrop-filter: contrast(1.2) sepia(0.2);
+  /* backdrop-filter: contrast(1.2) sepia(0.2); */
   border: 0.5px solid black;
+  border-radius: 2px;
+  background: linear-gradient(hsla(40, 50%, 80%, 0.25), hsla(40, 50%, 80%, 0.25));
+  font-size: 1em;
 }
 .hero img {
-  max-width: 500px;
+  max-width: 600px;
   filter: sepia(0.3) blur(0.5px);
 }
 .hero p {
   margin-top: 0;
-  font-size: 1.2em;
 }
-@media (min-width: 800px) {
+@media (min-width: 1000px) {
   .hero {
     grid-template-columns: auto 1fr;
+    place-items: start;
   }
   .hero p {
     font-size: 1.0em;
   }
   .hero img {
-    min-width: 300px;
+    min-width: 400px;
   }
 }
 @media (min-width: 900px) {
   .hero p {
-    font-size: 1.2em;
+    /* font-size: 1.2em; */
   }
 }
 
@@ -265,7 +313,7 @@ ul.griddy img {
     font-size: 4em;
   }
 
-  dl {
+  footer dl {
     grid-template-columns: auto 1fr;
   }
 
@@ -291,4 +339,8 @@ ul.griddy img {
   .row-3 {
     grid-template-columns: 1fr 1fr 1fr;
   }
+}
+
+.gone {
+  display: none;
 }
