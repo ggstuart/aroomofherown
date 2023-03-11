@@ -1,7 +1,11 @@
+* {
+  box-sizing: border-box;
+}
 body {
   padding: 0 1em;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
+  font-size: 1.1em;
   max-width: 1000px;
   margin: auto;
   margin-bottom: 1rem;
@@ -21,7 +25,6 @@ header {
   text-align: center;
   margin-bottom: 3em;
   border-bottom: 2px solid black;
-  /* color: white; */
 }
 
 header h1 {
@@ -50,6 +53,7 @@ nav a {
   margin-block: 0.25em;
   border-radius: 3px;
   text-decoration: none;
+  font-weight: 600;
   transition: 200ms;
   backdrop-filter: blur(5px) brightness(1.1);
   border: 0.25px solid grey;
@@ -76,26 +80,18 @@ footer img {
   max-width: 400px;
 }
 
+footer + small {
+  filter: opacity(0.75);
+  text-align: right;
+  display: block;
+}
+
 section {
   margin: 0 0 2em 0;
 }
 
 img {
   width: 100%;
-}
-
-.top-left {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.framed {
-  padding: 1rem;
-  background-color: white;
-  border: 0.5px solid grey;
-  box-sizing: border-box;
-  border-radius: 3px;
 }
 
 h1, h2, h3, h4 {
@@ -115,6 +111,15 @@ dd {
 }
 dt {
   font-weight: bold;
+}
+
+ul {
+  padding: 1rem;
+}
+@media screen and (min-width: 400px) {
+  ul {
+    padding: 1rem;
+  }
 }
 
 ul li {
@@ -149,6 +154,14 @@ figure {
 }
 figcaption {
   font-size: 0.8em;
+}
+
+.framed {
+  padding: 1rem;
+  background-color: white;
+  border: 0.5px solid grey;
+  box-sizing: border-box;
+  border-radius: 3px;
 }
 
 
@@ -190,7 +203,7 @@ figcaption {
   border: 0.5px solid black;
   padding: 1rem;
   border-radius: 2px;
-  place-self: center;
+  place-self: normal;
   grid-area: stuff;
 }
 .screenshot .more {
@@ -198,7 +211,12 @@ figcaption {
   place-self: end;
 }
 .screenshot dl {
-  grid-template-columns: auto 1fr;
+  /* grid-template-columns: 1fr; */
+}
+@media (min-width: 400px) {
+  .screenshot dl {
+    grid-template-columns: auto 1fr;
+  }    
 }
 
 figure.showing {
@@ -239,7 +257,7 @@ figure.showing img {
             "more more more"
   }
   .screenshot img {
-    max-height: 300px;
+    /* max-height: 300px; */
   }
 }
 
@@ -255,7 +273,7 @@ figure.showing img {
             "figure2 more more";
   }
   .screenshot img {
-    max-width: 225px;
+    max-width: 250px;
     max-height: none;
   }
 }
@@ -268,36 +286,67 @@ figure.showing img {
 }
 
 .griddy {
+  padding: 0;
+  margin-top: 3em;
   display: grid;
-  gap: 0.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.25rem;
+  place-items: stretch;
+  grid-auto-flow: dense;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-template-rows: repeat(auto-fit, minmax(1em, 1fr));
 }
 
-.griddy .bigger {
-  grid-row: span 5;
-}
-@media (min-width: 670px) {
-  .griddy .bigger {
-    grid-column: span 2;
-    grid-row: span 7;
-  }
-}
-
-ul.griddy {
-  padding: 0;
-}
 ul.griddy li {
   list-style: none;
-  padding: 0.5rem;
-  border-radius: 3px;
+  padding: 0.25rem;
+  border-radius: 2px;
   margin: 0;
+  display: grid;
+  align-content: end;
 }
-
 ul.griddy img {
   filter: sepia(0.8)
 }
+.griddy li:has(figure) {
+  grid-row: span 5;
+}
+.griddy figcaption {
+  font-size: 1em;
+}
+ul.griddy li {
+  backdrop-filter: invert(0.05) blur(5px);
+  /* backdrop-filter: brightness(0.9) blur(3px); */
+  background-color: hsla(210, 20%, 70%, 0.2);
+}
+ul.griddy li:nth-of-type(3n+1) {
+  /* backdrop-filter: brightness(0.9) blur(3px); */
+  background-color: hsla(210, 50%, 50%, 0.2);
+}
+ul.griddy li:nth-of-type(5n+2) {
+  /* backdrop-filter: brightness(0.8) blur(3px); */
+  background-color: hsla(20, 50%, 50%, 0.2);
+}
 
+
+@media (min-width: 480px) {
+  .griddy {
+    grid-template-columns: repeat(auto-fit, minmax(14ch, 1fr));
+  }
+  .griddy li.wide {
+    grid-column: span 2;
+  }
+  .griddy li:has(figure) {
+    grid-column: span 3;
+    grid-row: span 6;
+  }
+}
+@media (min-width: 700px) {
+
+  .griddy li:has(figure) {
+    grid-column: span 3;
+    grid-row: span 7;
+  }
+}
 
 .hero {
   display: grid;
